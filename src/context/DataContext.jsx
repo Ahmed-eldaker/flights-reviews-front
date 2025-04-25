@@ -38,7 +38,7 @@ export const DataProvider = ({ children }) => {
       try {
         // Fetch flights
         const flightsResponse = await axios.get(
-          `http://localhost:5000//flights`
+          `http://localhost:5000/flights`
         );
         setFlights(flightsResponse.data);
 
@@ -48,7 +48,7 @@ export const DataProvider = ({ children }) => {
 
         // Fetch reviews for each flight
         const reviewsPromises = flightsResponse.data.map((flight) =>
-          axios.get(`http://localhost:5000//reviews/${flight._id}`)
+          axios.get(`http://localhost:5000/reviews/${flight._id}`)
         );
 
         const reviewsResponses = await Promise.all(reviewsPromises);
@@ -78,7 +78,7 @@ export const DataProvider = ({ children }) => {
   // Add a review
   const addReview = async (flightId, reviewData) => {
     try {
-      const response = await axios.post(`http://localhost:5000//reviews`, {
+      const response = await axios.post(`http://localhost:5000/reviews`, {
         flight: flightId,
         ...reviewData,
       });

@@ -1,163 +1,90 @@
-// "use client"
+// "use client";
 
 import { createContext, useState, useContext, useEffect } from "react";
 import axios from "axios";
-import { useAuth } from "./AuthContext";
 import { toast } from "react-toastify";
 
-const DataContext = createContext();
+const AuthContext = createContext();
 
-export const useData = () => useContext(DataContext);
+export const useAuth = () => useContext(AuthContext);
 
-export const DataProvider = ({ children }) => {
-  const { token, isAuthenticated } = useAuth();
-  const [flights, setFlights] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  const [userFlights, setUserFlights] = useState([]);
-  const [userReviews, setUserReviews] = useState([]);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [loading, setLoading] = useState(true);
 
-  // Configure axios with token
+  // Check if user is authenticated on initial load
   useEffect(() => {
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    } else {
-      delete axios.defaults.headers.common["Authorization"];
+    const storedUser = localStorage.getItem("user");
+    if (storedUser && token) {
+      setUser(JSON.parse(storedUser));
     }
+    setLoading(false);
   }, [token]);
 
-  // Fetch flights and reviews
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!isAuthenticated) {
-        setLoading(false);
-        return;
-      }
-
-      setLoading(true);
-      try {
-        // Fetch flights
-        const flightsResponse = await axios.get(
-          `http://localhost:5000/flights`
-        );
-        setFlights(flightsResponse.data);
-
-        // Fetch user's reserved flights
-        const userFlightsResponse = await axios.get(
-          `http://localhost:5000/flights/user`
-        );
-        setUserFlights(userFlightsResponse.data);
-
-        // If the above endpoint doesn't exist in your API, use this fallback
-        if (
-          !userFlightsResponse.data ||
-          userFlightsResponse.data.length === 0
-        ) {
-          // Fallback: For demo purposes, we'll simulate user flights by taking a subset of all flights
-          setUserFlights(flightsResponse.data.slice(0, 2));
-        }
-
-        // Fetch reviews for each flight
-        const reviewsPromises = flightsResponse.data.map((flight) =>
-          axios.get(`http://localhost:5000/reviews/${flight._id}`)
-        );
-
-        const reviewsResponses = await Promise.all(reviewsPromises);
-        const allReviews = reviewsResponses.flatMap(
-          (response) => response.data
-        );
-        setReviews(allReviews);
-
-        // Fetch user's reviews
-        const userReviewsResponse = await axios.get(
-          `http://localhost:5000/reviews/user`
-        );
-        setUserReviews(userReviewsResponse.data);
-
-        // If the above endpoint doesn't exist in your API, use this fallback
-        if (
-          !userReviewsResponse.data ||
-          userReviewsResponse.data.length === 0
-        ) {
-          // Fallback: Filter reviews by user ID
-          const userId = JSON.parse(localStorage.getItem("user"))?.user;
-          const filteredUserReviews = allReviews.filter(
-            (review) => review.user._id === userId
-          );
-          setUserReviews(filteredUserReviews);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        toast.error("Failed to load data");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [isAuthenticated]);
-
-  // Add a review
-  const addReview = async (flightId, reviewData) => {
+  // Login function
+  const login = async (email, password) => {
     try {
-      const response = await axios.post(`http://localhost:5000/reviews`, {
-        flight: flightId,
-        ...reviewData,
+      const response = await axios.post(`http://localhost:5000/auth/login`, {
+        email,
+        password,
       });
 
-      // Update reviews state
-      setReviews([...reviews, response.data]);
+      const { token: newToken, user: userData } = response.data;
 
-      // Update user reviews
-      setUserReviews([...userReviews, response.data]);
+      // Save to localStorage
+      localStorage.setItem("token", newToken);
+      localStorage.setItem("user", JSON.stringify(userData));
 
-      toast.success("Review added successfully!");
+      // Update state
+      setToken(newToken);
+      setUser(userData);
+
+      toast.success("Login successful!");
       return true;
     } catch (error) {
-      console.error("Error adding review:", error);
-      toast.error("Failed to add review");
+      console.error("Login error:", error);
+      toast.error(error.response?.data?.msg || "Login failed");
       return false;
     }
   };
 
-  // Reserve a flight (simulated)
-  const reserveFlight = async (flightId) => {
+  // Signup function
+  const signup = async (name, email, password) => {
     try {
-      // In a real app, you'd call an API endpoint to reserve the flight
-      // For this demo, we'll just simulate it by adding the flight to userFlights
-      const flight = flights.find((f) => f._id === flightId);
+      const response = await axios.post(`http://localhost:5000/auth/signup`, {
+        name,
+        email,
+        password,
+      });
 
-      if (!flight) {
-        throw new Error("Flight not found");
-      }
-
-      // Check if flight is already reserved
-      if (userFlights.some((f) => f._id === flightId)) {
-        toast.info("You have already reserved this flight");
-        return false;
-      }
-
-      // Add to user flights
-      setUserFlights([...userFlights, flight]);
-
-      toast.success("Flight reserved successfully!");
+      toast.success("Account created successfully!");
       return true;
     } catch (error) {
-      console.error("Error reserving flight:", error);
-      toast.error("Failed to reserve flight");
+      console.error("Signup error:", error);
+      toast.error(error.response?.data?.msg || "Signup failed");
       return false;
     }
+  };
+
+  // Logout function
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setToken(null);
+    setUser(null);
+    toast.info("Logged out successfully");
   };
 
   const value = {
-    flights,
-    reviews,
-    userFlights,
-    userReviews,
+    user,
+    token,
+    isAuthenticated: !!token,
     loading,
-    addReview,
-    reserveFlight,
+    login,
+    signup,
+    logout,
   };
 
-  return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
