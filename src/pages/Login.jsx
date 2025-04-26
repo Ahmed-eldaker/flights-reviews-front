@@ -36,7 +36,7 @@ const Login = () => {
       <div className="flex-1 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center">
-            <FaPlane className="h-12 w-12 text-blue-600" />
+            <FaPlane className="h-12 w-12 text-amber-600" />
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in to your account
@@ -45,7 +45,7 @@ const Login = () => {
             Or{" "}
             <Link
               to="/signup"
-              className="font-medium text-blue-600 hover:text-blue-500"
+              className="font-medium text-amber-600 hover:text-amber-500"
             >
               create a new account
             </Link>
@@ -133,7 +133,7 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 disabled:opacity-50"
                 >
                   {loading ? "Signing in..." : "Sign in"}
                 </button>

@@ -58,7 +58,7 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <FaPlane className="h-8 w-8 text-blue-600" />
+              <FaPlane className="h-8 w-8 text-amber-600" />
               <span className="ml-2 text-xl font-bold text-gray-900">
                 FlightReview
               </span>
@@ -66,13 +66,13 @@ const Landing = () => {
             <div className="flex items-center">
               <Link
                 to="/login"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-700 hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium"
               >
                 Login
               </Link>
               <Link
                 to="/signup"
-                className="ml-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                className="ml-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700"
               >
                 Sign Up
               </Link>
@@ -82,26 +82,26 @@ const Landing = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-blue-600 text-white py-16">
+      <section className="bg-amber-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl">
               Share Your Flight Experience
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-xl text-blue-100 sm:text-2xl md:mt-5 md:max-w-3xl">
+            <p className="mt-3 max-w-md mx-auto text-xl text-amber-100 sm:text-2xl md:mt-5 md:max-w-3xl">
               Review flights, help others make informed decisions, and find the
               best airlines for your next trip.
             </p>
             <div className="mt-10 flex justify-center">
               <Link
                 to="/signup"
-                className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50 md:py-4 md:text-lg md:px-10"
+                className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-amber-700 bg-white hover:bg-amber-50 md:py-4 md:text-lg md:px-10"
               >
                 Get Started
               </Link>
               <Link
                 to="/login"
-                className="ml-4 px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-800 hover:bg-blue-900 md:py-4 md:text-lg md:px-10"
+                className="ml-4 px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-lime-500 hover:bg-lime-600 md:py-4 md:text-lg md:px-10"
               >
                 Login
               </Link>
@@ -130,8 +130,8 @@ const Landing = () => {
               >
                 <div className="p-6">
                   <div className="flex items-center">
-                    <div className="bg-blue-100 p-3 rounded-full">
-                      <FaPlane className="h-6 w-6 text-blue-600" />
+                    <div className="bg-amber-100 p-3 rounded-full">
+                      <FaPlane className="h-6 w-6 text-amber-600" />
                     </div>
                     <h3 className="ml-3 text-xl font-medium text-gray-900">
                       {flight.airline}
@@ -152,13 +152,13 @@ const Landing = () => {
                     </p>
                   </div>
                   <div className="mt-4 flex items-center">
-                    <div className="flex text-yellow-400">
+                    <div className="flex text-amber-400">
                       {[...Array(5)].map((_, i) => (
                         <FaStar
                           key={i}
                           className={`h-5 w-5 ${
                             i < Math.floor(flight.rating)
-                              ? "text-yellow-400"
+                              ? "text-amber-400"
                               : "text-gray-300"
                           }`}
                         />
@@ -194,13 +194,13 @@ const Landing = () => {
                 className="bg-gray-50 overflow-hidden shadow rounded-lg"
               >
                 <div className="p-6">
-                  <div className="flex text-yellow-400 mb-4">
+                  <div className="flex text-amber-400 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <FaStar
                         key={i}
                         className={`h-5 w-5 ${
                           i < testimonial.rating
-                            ? "text-yellow-400"
+                            ? "text-amber-400"
                             : "text-gray-300"
                         }`}
                       />
@@ -228,8 +228,8 @@ const Landing = () => {
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
             <div className="text-center">
-              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100">
-                <FaStar className="h-8 w-8 text-blue-600" />
+              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-amber-100">
+                <FaStar className="h-8 w-8 text-amber-600" />
               </div>
               <h3 className="mt-4 text-xl font-medium text-gray-900">
                 Detailed Reviews
@@ -241,8 +241,8 @@ const Landing = () => {
             </div>
 
             <div className="text-center">
-              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100">
-                <FaUsers className="h-8 w-8 text-blue-600" />
+              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-amber-100">
+                <FaUsers className="h-8 w-8 text-amber-600" />
               </div>
               <h3 className="mt-4 text-xl font-medium text-gray-900">
                 Community Driven
@@ -253,8 +253,8 @@ const Landing = () => {
             </div>
 
             <div className="text-center">
-              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100">
-                <FaGlobe className="h-8 w-8 text-blue-600" />
+              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-amber-100">
+                <FaGlobe className="h-8 w-8 text-amber-600" />
               </div>
               <h3 className="mt-4 text-xl font-medium text-gray-900">
                 Global Coverage
@@ -272,7 +272,7 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center">
-              <FaPlane className="h-6 w-6 text-blue-400" />
+              <FaPlane className="h-6 w-6 text-amber-400" />
               <span className="ml-2 text-lg font-bold">FlightReview</span>
             </div>
             <div className="mt-4 md:mt-0">

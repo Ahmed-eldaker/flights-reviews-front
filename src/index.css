@@ -1,25 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   font-family: "Inter", sans-serif;
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200;
 }
-/* 
+
 @layer components {
   .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors;
+    @apply bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors;
+    @apply bg-lime-400 hover:bg-lime-500 dark:bg-lime-600 dark:hover:bg-lime-500 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-md p-6;
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg;
   }
 
   .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 dark:focus:ring-amber-400 transition-all duration-300 dark:bg-gray-700 dark:text-white;
   }
 
   .form-group {
@@ -27,6 +29,41 @@ body {
   }
 
   .form-label {
-    @apply block text-gray-700 font-medium mb-1;
+    @apply block text-gray-700 dark:text-gray-300 font-medium mb-1;
   }
-} */
+
+  .page-container {
+    @apply container mx-auto px-4 py-8 max-w-6xl;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold mb-4 text-gray-800 dark:text-white border-b-2 border-amber-500 pb-2 inline-block;
+  }
+
+  .tab-button {
+    @apply whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm transition-all duration-300 flex items-center;
+  }
+
+  .tab-button-active {
+    @apply border-amber-500 text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-gray-700 rounded-t-md;
+  }
+
+  .tab-button-inactive {
+    @apply border-transparent text-gray-500 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700 hover:border-amber-300 dark:hover:border-amber-700 rounded-t-md;
+  }
+
+  .animate-fade-in {
+    @apply opacity-0 animate-[fadeIn_0.5s_ease-in-out_forwards];
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,55 +1,58 @@
-// "use client";
-
-import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { FaPlane, FaEnvelope, FaLock, FaUser } from "react-icons/fa"
-import { useAuth } from "../context/AuthContext.jsx"
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaPlane, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const Signup = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const { signup } = useAuth()
-  const navigate = useNavigate()
+  const { signup } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError("")
+    e.preventDefault();
+    setError("");
 
     // Validate passwords match
     if (password !== confirmPassword) {
-      return setError("Passwords do not match")
+      return setError("Passwords do not match");
     }
 
-    setLoading(true)
+    setLoading(true);
 
     try {
-      const success = await signup(name, email, password)
+      const success = await signup(name, email, password);
       if (success) {
-        navigate("/login")
+        navigate("/login");
       }
     } catch (err) {
-      setError("Failed to create an account. Please try again.")
+      setError("Failed to create an account. Please try again.");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <div className="flex-1 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center">
-            <FaPlane className="h-12 w-12 text-blue-600" />
+            <FaPlane className="h-12 w-12 text-amber-600" />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Create your account
+          </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{" "}
-            <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
+            <Link
+              to="/login"
+              className="font-medium text-amber-600 hover:text-amber-500"
+            >
               sign in to your existing account
             </Link>
           </p>
@@ -84,7 +87,10 @@ const Signup = () => {
 
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Full name
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
@@ -106,7 +112,10 @@ const Signup = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Email address
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
@@ -128,7 +137,10 @@ const Signup = () => {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Password
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
@@ -149,7 +161,10 @@ const Signup = () => {
               </div>
 
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Confirm password
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
@@ -173,7 +188,7 @@ const Signup = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 disabled:opacity-50"
                 >
                   {loading ? "Creating account..." : "Create account"}
                 </button>
@@ -185,11 +200,13 @@ const Signup = () => {
 
       <footer className="bg-white py-4 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm text-gray-500">&copy; 2023 FlightReview. All rights reserved.</p>
+          <p className="text-center text-sm text-gray-500">
+            &copy; 2023 FlightReview. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

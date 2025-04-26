@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import FlightDetail from "./pages/FlightDetail";
 import Navbar from "./components/Navbar";
 
 // Protected route component
@@ -28,7 +30,7 @@ function App() {
   const { isAuthenticated } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
       <Routes>
         <Route
           path="/"
@@ -55,6 +57,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/flight/:flightId"
+          element={
+            <ProtectedRoute>
+              <FlightDetail />
             </ProtectedRoute>
           }
         />
