@@ -25,13 +25,10 @@ export const AuthProvider = ({ children }) => {
   // Login function
   const login = async (email, password) => {
     try {
-      const response = await axios.post(
-        `https://flights-reviews-backend-production.up.railway.app/auth/login`,
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post(`http://localhost:5000/auth/login`, {
+        email,
+        password,
+      });
 
       const { token: newToken, user: userData } = response.data;
 
@@ -55,14 +52,11 @@ export const AuthProvider = ({ children }) => {
   // Signup function
   const signup = async (name, email, password) => {
     try {
-      const response = await axios.post(
-        `https://flights-reviews-backend-production.up.railway.app/auth/signup`,
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      const response = await axios.post(`http://localhost:5000/auth/signup`, {
+        name,
+        email,
+        password,
+      });
 
       toast.success("Account created successfully!");
       return true;

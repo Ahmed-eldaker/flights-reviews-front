@@ -39,7 +39,7 @@ export const DataProvider = ({ children }) => {
         // Try to fetch flights from API
         try {
           const flightsResponse = await axios.get(
-            `https://flights-reviews-backend-production.up.railway.app/flights`
+            `http://localhost:5000/flights`
           );
           setFlights(flightsResponse.data);
 
@@ -49,9 +49,7 @@ export const DataProvider = ({ children }) => {
 
           // Try to fetch reviews for each flight
           const reviewsPromises = flightsResponse.data.map((flight) =>
-            axios.get(
-              `https://flights-reviews-backend-production.up.railway.app/reviews/${flight._id}`
-            )
+            axios.get(`http://localhost:5000/reviews/${flight._id}`)
           );
 
           const reviewsResponses = await Promise.all(reviewsPromises);
@@ -67,7 +65,7 @@ export const DataProvider = ({ children }) => {
           // Try to fetch user reviews directly from the API
           try {
             const userReviewsResponse = await axios.get(
-              `https://flights-reviews-backend-production.up.railway.app/reviews/user/${userId}`
+              `http://localhost:5000/reviews/user/${userId}`
             );
             setUserReviews(userReviewsResponse.data);
           } catch (error) {
@@ -125,7 +123,7 @@ export const DataProvider = ({ children }) => {
       try {
         // Try to call the API
         const response = await axios.post(
-          `https://flights-reviews-backend-production.up.railway.app/reviews`,
+          `http://localhost:5000/reviews`,
           reviewPayload
         );
         newReview = response.data;
@@ -182,8 +180,10 @@ export const DataProvider = ({ children }) => {
       let reservedFlight;
 
       try {
+        // In a real app, you'd call an API endpoint to reserve the flight
+        // For this demo, we'll just simulate it
         const response = await axios.post(
-          `https://flights-reviews-backend-production.up.railway.app/flights/reserve`,
+          `http://localhost:5000/flights/reserve`,
           {
             flightId,
           }
