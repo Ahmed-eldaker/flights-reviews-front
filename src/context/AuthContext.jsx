@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [loading, setLoading] = useState(true);
+  const URL = "https://flights-xi-five.vercel.app/";
 
   // Check if user is authenticated on initial load
   useEffect(() => {
@@ -25,7 +26,7 @@ export const AuthProvider = ({ children }) => {
   // Login function
   const login = async (email, password) => {
     try {
-      const response = await axios.post(`http://localhost:5000/auth/login`, {
+      const response = await axios.post(`${URL}auth/login`, {
         email,
         password,
       });
@@ -52,7 +53,7 @@ export const AuthProvider = ({ children }) => {
   // Signup function
   const signup = async (name, email, password) => {
     try {
-      const response = await axios.post(`http://localhost:5000/auth/signup`, {
+      const response = await axios.post(`${URL}auth/signup`, {
         name,
         email,
         password,

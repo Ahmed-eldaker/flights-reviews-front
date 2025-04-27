@@ -66,7 +66,7 @@ const FlightDetail = () => {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <FaSpinner className="h-12 w-12 text-amber-600 dark:text-amber-400 animate-spin mb-4" />
+        <FaSpinner className="h-12 w-12 text-emerald-700 dark:text-emerald-400 animate-spin mb-4" />
         <p className="text-lg text-gray-600 dark:text-gray-400">
           Loading flight details...
         </p>
@@ -78,7 +78,7 @@ const FlightDetail = () => {
     return (
       <div className="page-container">
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center">
-          <FaInfoCircle className="h-12 w-12 text-amber-600 dark:text-amber-400 mx-auto mb-4" />
+          <FaInfoCircle className="h-12 w-12 text-emerald-700 dark:text-emerald-400 mx-auto mb-4" />
           <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
             Flight Not Found
           </h2>
@@ -87,7 +87,7 @@ const FlightDetail = () => {
           </p>
           <Link
             to="/home"
-            className="inline-flex items-center px-4 py-2 bg-amber-600 dark:bg-amber-700 text-white rounded-md hover:bg-amber-700 dark:hover:bg-amber-600 transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-emerald-700 dark:bg-emerald-800 text-white rounded-md hover:bg-emerald-800 dark:hover:bg-emerald-700 transition-colors"
           >
             <FaArrowLeft className="mr-2" />
             Back to Flights
@@ -102,7 +102,7 @@ const FlightDetail = () => {
       <div className="mb-6">
         <Link
           to="/home"
-          className="inline-flex items-center text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300"
+          className="inline-flex items-center text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300"
         >
           <FaArrowLeft className="mr-2" />
           Back to Flights
@@ -110,16 +110,16 @@ const FlightDetail = () => {
       </div>
 
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mb-8">
-        <div className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-700 dark:to-amber-800 p-6 text-white">
+        <div className="bg-gradient-to-r from-emerald-700 to-emerald-800 dark:from-emerald-800 dark:to-emerald-900 p-6 text-white">
           <div className="flex flex-col md:flex-row md:items-center justify-between">
             <div className="flex items-center mb-4 md:mb-0">
               <div className="bg-white dark:bg-gray-800 p-3 rounded-full mr-4 shadow-md">
-                <FaPlane className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+                <FaPlane className="h-8 w-8 text-emerald-700 dark:text-emerald-400" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold">{flight.airline}</h1>
-                <p className="text-amber-100 dark:text-amber-200 flex items-center">
-                  <span className="bg-white dark:bg-gray-800 text-amber-700 dark:text-amber-400 text-xs px-2 py-1 rounded-full mr-2">
+                <p className="text-emerald-100 dark:text-emerald-200 flex items-center">
+                  <span className="bg-white dark:bg-gray-800 text-emerald-700 dark:text-emerald-400 text-xs px-2 py-1 rounded-full mr-2">
                     #{flight.flightNumber}
                   </span>
                   <span>{flight.duration || "5h 30m"}</span>
@@ -127,7 +127,7 @@ const FlightDetail = () => {
               </div>
             </div>
             <div className="flex items-center">
-              <div className="bg-white dark:bg-gray-800 px-4 py-2 rounded-lg text-amber-700 dark:text-amber-400 font-medium">
+              <div className="bg-white dark:bg-gray-800 px-4 py-2 rounded-lg text-emerald-700 dark:text-emerald-400 font-medium">
                 <FaCalendarAlt className="inline mr-2" />
                 {formatDate(flight.departureDate)}
               </div>
@@ -136,7 +136,7 @@ const FlightDetail = () => {
         </div>
 
         <div className="p-6">
-          <div className="flex items-center justify-between my-6 bg-gradient-to-r from-amber-50 to-white dark:from-gray-700 dark:to-gray-800 p-6 rounded-lg shadow-inner">
+          <div className="flex items-center justify-between my-6 bg-gradient-to-r from-emerald-50 to-white dark:from-gray-700 dark:to-gray-800 p-6 rounded-lg shadow-inner">
             <div className="text-center">
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
                 From
@@ -144,7 +144,7 @@ const FlightDetail = () => {
               <p className="text-xl font-bold text-gray-800 dark:text-white">
                 {flight.from}
               </p>
-              <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">
+              <p className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">
                 {formatTime(flight.departureDate)}
               </p>
               <div className="mt-2 flex items-center justify-center text-gray-500 dark:text-gray-400">
@@ -155,14 +155,14 @@ const FlightDetail = () => {
 
             <div className="flex-1 flex justify-center relative px-4">
               <div className="w-full max-w-[300px] flex items-center">
-                <div className="h-[3px] flex-1 bg-lime-300 dark:bg-lime-600"></div>
+                <div className="h-[3px] flex-1 bg-gray-700 dark:bg-gray-600"></div>
                 <div className="relative">
-                  <FaPlane className="h-6 w-6 text-amber-500 dark:text-amber-400 mx-3 transform rotate-90" />
-                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-lime-400 dark:bg-lime-600 text-sm text-gray-800 dark:text-white px-3 py-1 rounded-full whitespace-nowrap shadow-md">
+                  <FaPlane className="h-6 w-6 text-emerald-700 dark:text-emerald-400 mx-3 transform rotate-90" />
+                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-700 dark:bg-gray-600 text-sm text-white dark:text-white px-3 py-1 rounded-full whitespace-nowrap shadow-md">
                     {flight.duration || "5h 30m"}
                   </div>
                 </div>
-                <div className="h-[3px] flex-1 bg-lime-300 dark:bg-lime-600"></div>
+                <div className="h-[3px] flex-1 bg-gray-700 dark:bg-gray-600"></div>
               </div>
             </div>
 
@@ -173,7 +173,7 @@ const FlightDetail = () => {
               <p className="text-xl font-bold text-gray-800 dark:text-white">
                 {flight.to}
               </p>
-              <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">
+              <p className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">
                 {formatTime(
                   new Date(
                     new Date(flight.departureDate).getTime() +
@@ -326,7 +326,7 @@ const FlightDetail = () => {
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="min-w-[80px] text-center">
-                      <div className="text-lg font-bold text-amber-600 dark:text-amber-400">
+                      <div className="text-lg font-bold text-emerald-700 dark:text-emerald-400">
                         {formatTime(flight.departureDate)}
                       </div>
                       <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -351,7 +351,7 @@ const FlightDetail = () => {
 
                   <div className="flex items-start">
                     <div className="min-w-[80px] text-center">
-                      <div className="text-lg font-bold text-amber-600 dark:text-amber-400">
+                      <div className="text-lg font-bold text-emerald-700 dark:text-emerald-400">
                         {formatTime(
                           new Date(
                             new Date(flight.departureDate).getTime() +
@@ -387,7 +387,7 @@ const FlightDetail = () => {
                   className={`flex items-center justify-center px-6 py-3 text-base font-medium rounded-md transition-all duration-300 shadow-md hover:shadow-lg ${
                     isReserved
                       ? "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-400 cursor-default"
-                      : "bg-amber-600 dark:bg-amber-700 hover:bg-amber-700 dark:hover:bg-amber-600 text-white"
+                      : "bg-emerald-700 dark:bg-emerald-800 hover:bg-emerald-800 dark:hover:bg-emerald-700 text-white"
                   }`}
                 >
                   {isReserved ? (

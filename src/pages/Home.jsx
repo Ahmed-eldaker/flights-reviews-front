@@ -177,7 +177,7 @@ const Home = () => {
   if (loading || isLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <FaSpinner className="h-12 w-12 text-amber-600 animate-spin mb-4" />
+        <FaSpinner className="h-12 w-12 text-emerald-700 animate-spin mb-4" />
         <p className="text-lg text-gray-600">
           Loading amazing flights for you...
         </p>
@@ -187,12 +187,12 @@ const Home = () => {
 
   return (
     <div className="page-container">
-      <div className="bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl p-8 mb-8 shadow-lg">
+      <div className="bg-gradient-to-r from-emerald-700 to-emerald-800 text-white rounded-xl p-8 mb-8 shadow-lg">
         <div className="max-w-3xl">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Welcome to FlightReview
           </h1>
-          <p className="text-lg mb-6 text-amber-100">
+          <p className="text-lg mb-6 text-emerald-100">
             Discover the best flights, read authentic reviews, and share your
             own experiences to help fellow travelers.
           </p>
@@ -208,7 +208,7 @@ const Home = () => {
                   searchFlights(e.target.value);
                 }
               }}
-              className="w-full py-3 px-4 pl-12 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-lime-400"
+              className="w-full py-3 px-4 pl-12 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700"
             />
             <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
           </div>
@@ -217,19 +217,19 @@ const Home = () => {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white p-4 rounded-lg shadow-md border border-gray-100 text-center">
-          <div className="text-2xl font-bold text-amber-600">
+          <div className="text-2xl font-bold text-emerald-700">
             {displayFlights.length}
           </div>
           <div className="text-gray-500 text-sm">Available Flights</div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow-md border border-gray-100 text-center">
-          <div className="text-2xl font-bold text-amber-600">
+          <div className="text-2xl font-bold text-emerald-700">
             {displayReviews.length}
           </div>
           <div className="text-gray-500 text-sm">User Reviews</div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow-md border border-gray-100 text-center">
-          <div className="text-2xl font-bold text-lime-500">4.2</div>
+          <div className="text-2xl font-bold text-gray-700">4.2</div>
           <div className="text-gray-500 text-sm">Average Rating</div>
         </div>
       </div>
@@ -270,12 +270,12 @@ const Home = () => {
           <div className="flex justify-between items-center mb-6">
             <h2 className="section-title">Available Flights</h2>
             <div className="flex space-x-2">
-              <button className="flex items-center px-3 py-2 bg-white rounded-md shadow-sm text-gray-700 hover:bg-amber-50 transition-colors">
-                <FaFilter className="mr-2 text-amber-500" />
+              <button className="flex items-center px-3 py-2 bg-white rounded-md shadow-sm text-gray-700 hover:bg-emerald-50 transition-colors">
+                <FaFilter className="mr-2 text-emerald-500" />
                 <span className="text-sm">Filter</span>
               </button>
-              <button className="flex items-center px-3 py-2 bg-white rounded-md shadow-sm text-gray-700 hover:bg-amber-50 transition-colors">
-                <FaSortAmountDown className="mr-2 text-amber-500" />
+              <button className="flex items-center px-3 py-2 bg-white rounded-md shadow-sm text-gray-700 hover:bg-emerald-50 transition-colors">
+                <FaSortAmountDown className="mr-2 text-emerald-500" />
                 <span className="text-sm">Sort</span>
               </button>
             </div>
@@ -304,12 +304,12 @@ const Home = () => {
           <div className="flex justify-between items-center mb-6">
             <h2 className="section-title">Recent Reviews</h2>
             <div className="flex space-x-2">
-              <button className="flex items-center px-3 py-2 bg-white rounded-md shadow-sm text-gray-700 hover:bg-amber-50 transition-colors">
-                <FaFilter className="mr-2 text-amber-500" />
+              <button className="flex items-center px-3 py-2 bg-white rounded-md shadow-sm text-gray-700 hover:bg-emerald-50 transition-colors">
+                <FaFilter className="mr-2 text-emerald-500" />
                 <span className="text-sm">Filter</span>
               </button>
-              <button className="flex items-center px-3 py-2 bg-white rounded-md shadow-sm text-gray-700 hover:bg-amber-50 transition-colors">
-                <FaSortAmountDown className="mr-2 text-amber-500" />
+              <button className="flex items-center px-3 py-2 bg-white rounded-md shadow-sm text-gray-700 hover:bg-emerald-50 transition-colors">
+                <FaSortAmountDown className="mr-2 text-emerald-500" />
                 <span className="text-sm">Sort</span>
               </button>
             </div>

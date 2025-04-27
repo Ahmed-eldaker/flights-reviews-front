@@ -1,4 +1,6 @@
-// "use client"
+"use client";
+
+// Update App.jsx to include the new AddFlight route
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import Landing from "./pages/Landing";
@@ -8,6 +10,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import FlightDetail from "./pages/FlightDetail";
+import AddFlight from "./pages/AddFlight";
 import Navbar from "./components/Navbar";
 
 // Protected route component
@@ -73,6 +76,14 @@ function App() {
           element={
             <ProtectedRoute>
               <FlightDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add-flight"
+          element={
+            <ProtectedRoute>
+              <AddFlight />
             </ProtectedRoute>
           }
         />

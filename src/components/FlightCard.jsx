@@ -50,18 +50,18 @@ const FlightCard = ({ flight, showActions = true }) => {
   };
 
   return (
-    <div className="card mb-6 overflow-hidden hover:border-amber-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-amber-500 transition-all duration-300">
+    <div className="card mb-6 overflow-hidden hover:border-emerald-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-emerald-500 transition-all duration-300">
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
         <div className="flex items-center mb-4 md:mb-0">
-          <div className="bg-amber-100 dark:bg-amber-900 p-3 rounded-full mr-4 shadow-sm">
-            <FaPlane className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+          <div className="bg-emerald-100 dark:bg-emerald-900 p-3 rounded-full mr-4 shadow-sm">
+            <FaPlane className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-800 dark:text-white">
               {flight.airline}
             </h2>
             <p className="text-gray-500 dark:text-gray-400 flex items-center">
-              <span className="bg-amber-50 dark:bg-gray-700 text-amber-700 dark:text-amber-400 text-xs px-2 py-1 rounded-full mr-2">
+              <span className="bg-emerald-50 dark:bg-gray-700 text-emerald-700 dark:text-emerald-400 text-xs px-2 py-1 rounded-full mr-2">
                 #{flight.flightNumber}
               </span>
               <span className="text-sm">{flight.duration || "5h 30m"}</span>
@@ -69,34 +69,34 @@ const FlightCard = ({ flight, showActions = true }) => {
           </div>
         </div>
         <div className="flex items-center bg-gray-50 dark:bg-gray-700 px-3 py-2 rounded-lg">
-          <FaCalendarAlt className="text-amber-500 dark:text-amber-400 mr-2" />
+          <FaCalendarAlt className="text-emerald-700 dark:text-emerald-400 mr-2" />
           <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
             {formatDate(flight.departureDate)}
           </span>
         </div>
       </div>
 
-      <div className="flex items-center justify-between my-6 bg-gradient-to-r from-amber-50 to-white dark:from-gray-700 dark:to-gray-800 p-4 rounded-lg">
+      <div className="flex items-center justify-between my-6 bg-gradient-to-r from-emerald-50 to-white dark:from-gray-700 dark:to-gray-800 p-4 rounded-lg">
         <div className="text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">From</p>
           <p className="text-lg font-bold text-gray-800 dark:text-white">
             {flight.from}
           </p>
-          <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">
+          <p className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">
             {formatTime(flight.departureDate)}
           </p>
         </div>
 
         <div className="flex-1 flex justify-center relative">
           <div className="w-full max-w-[200px] flex items-center">
-            <div className="h-[2px] flex-1 bg-lime-300 dark:bg-lime-600"></div>
+            <div className="h-[2px] flex-1 bg-gray-700 dark:bg-gray-600"></div>
             <div className="relative">
-              <FaPlane className="h-5 w-5 text-amber-500 dark:text-amber-400 mx-2 transform rotate-90" />
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-lime-400 dark:bg-lime-600 text-xs text-gray-800 dark:text-white px-2 py-1 rounded-full whitespace-nowrap">
+              <FaPlane className="h-5 w-5 text-emerald-700 dark:text-emerald-400 mx-2 transform rotate-90" />
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-700 dark:bg-gray-600 text-xs text-white dark:text-white px-2 py-1 rounded-full whitespace-nowrap">
                 {flight.duration || "5h 30m"}
               </div>
             </div>
-            <div className="h-[2px] flex-1 bg-lime-300 dark:bg-lime-600"></div>
+            <div className="h-[2px] flex-1 bg-gray-700 dark:bg-gray-600"></div>
           </div>
         </div>
 
@@ -105,7 +105,7 @@ const FlightCard = ({ flight, showActions = true }) => {
           <p className="text-lg font-bold text-gray-800 dark:text-white">
             {flight.to}
           </p>
-          <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">
+          <p className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">
             {formatTime(
               new Date(
                 new Date(flight.departureDate).getTime() + 5 * 60 * 60 * 1000
@@ -148,7 +148,7 @@ const FlightCard = ({ flight, showActions = true }) => {
 
           <button
             onClick={() => setShowReviewForm(!showReviewForm)}
-            className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900 hover:bg-amber-200 dark:hover:bg-amber-800 transition-all duration-300 shadow-sm hover:shadow"
+            className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900 hover:bg-emerald-200 dark:hover:bg-emerald-800 transition-all duration-300 shadow-sm hover:shadow"
           >
             <FaStar className="mr-2" />
             {showReviewForm ? "Cancel Review" : "Write Review"}
@@ -161,7 +161,7 @@ const FlightCard = ({ flight, showActions = true }) => {
             className={`flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md transition-all duration-300 shadow-sm hover:shadow ${
               isReserved
                 ? "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-400 cursor-default"
-                : "bg-amber-600 dark:bg-amber-700 hover:bg-amber-700 dark:hover:bg-amber-600 text-white"
+                : "bg-emerald-700 dark:bg-emerald-800 hover:bg-emerald-800 dark:hover:bg-emerald-700 text-white"
             }`}
           >
             {isReserved ? (

@@ -9,11 +9,11 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+    @apply bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-800 dark:hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply bg-lime-400 hover:bg-lime-500 dark:bg-lime-600 dark:hover:bg-lime-500 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+    @apply bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 dark:hover:bg-gray-500 text-white dark:text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
   }
 
   .card {
@@ -21,7 +21,7 @@ body {
   }
 
   .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 dark:focus:ring-amber-400 transition-all duration-300 dark:bg-gray-700 dark:text-white;
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 transition-all duration-300 dark:bg-gray-700 dark:text-white;
   }
 
   .form-group {
@@ -37,7 +37,7 @@ body {
   }
 
   .section-title {
-    @apply text-2xl font-bold mb-4 text-gray-800 dark:text-white border-b-2 border-amber-500 pb-2 inline-block;
+    @apply text-2xl font-bold mb-4 text-gray-800 dark:text-white border-b-2 border-emerald-500 pb-2 inline-block;
   }
 
   .tab-button {
@@ -45,11 +45,11 @@ body {
   }
 
   .tab-button-active {
-    @apply border-amber-500 text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-gray-700 rounded-t-md;
+    @apply border-emerald-500 text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-gray-700 rounded-t-md;
   }
 
   .tab-button-inactive {
-    @apply border-transparent text-gray-500 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700 hover:border-amber-300 dark:hover:border-amber-700 rounded-t-md;
+    @apply border-transparent text-gray-500 dark:text-gray-400 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-700 hover:border-emerald-300 dark:hover:border-emerald-700 rounded-t-md;
   }
 
   .animate-fade-in {

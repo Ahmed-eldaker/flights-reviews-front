@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { FaCog, FaBell, FaLock, FaUser, FaGlobe, FaSave } from "react-icons/fa";
@@ -43,7 +45,7 @@ const Settings = () => {
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mb-8">
         <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
-            <FaCog className="mr-2 text-amber-600 dark:text-amber-400" />
+            <FaCog className="mr-2 text-emerald-700 dark:text-emerald-400" />
             Account Settings
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
@@ -59,7 +61,7 @@ const Settings = () => {
                 onClick={() => setActiveTab("profile")}
                 className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-md ${
                   activeTab === "profile"
-                    ? "bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300"
+                    ? "bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300"
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
@@ -70,7 +72,7 @@ const Settings = () => {
                 onClick={() => setActiveTab("security")}
                 className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-md ${
                   activeTab === "security"
-                    ? "bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300"
+                    ? "bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300"
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
@@ -81,7 +83,7 @@ const Settings = () => {
                 onClick={() => setActiveTab("notifications")}
                 className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-md ${
                   activeTab === "notifications"
-                    ? "bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300"
+                    ? "bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300"
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
@@ -92,7 +94,7 @@ const Settings = () => {
                 onClick={() => setActiveTab("preferences")}
                 className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-md ${
                   activeTab === "preferences"
-                    ? "bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300"
+                    ? "bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300"
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
@@ -125,7 +127,7 @@ const Settings = () => {
                         id="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                     <div>
@@ -141,7 +143,7 @@ const Settings = () => {
                         id="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                     <div className="sm:col-span-2">
@@ -157,7 +159,7 @@ const Settings = () => {
                         rows={3}
                         value={formData.bio}
                         onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                       />
                       <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                         Brief description for your profile. URLs are
@@ -177,7 +179,7 @@ const Settings = () => {
                         id="location"
                         value={formData.location}
                         onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                     <div>
@@ -192,7 +194,7 @@ const Settings = () => {
                         name="language"
                         value={formData.language}
                         onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                       >
                         <option>English</option>
                         <option>Spanish</option>
@@ -225,7 +227,7 @@ const Settings = () => {
                         id="password"
                         value={formData.password}
                         onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                     <div>
@@ -241,7 +243,7 @@ const Settings = () => {
                         id="newPassword"
                         value={formData.newPassword}
                         onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                     <div>
@@ -257,7 +259,7 @@ const Settings = () => {
                         id="confirmPassword"
                         value={formData.confirmPassword}
                         onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                   </div>
@@ -294,7 +296,7 @@ const Settings = () => {
                           htmlFor="emailNotifications"
                           className={`flex items-center w-12 h-6 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
                             formData.emailNotifications
-                              ? "bg-amber-500"
+                              ? "bg-emerald-700"
                               : "bg-gray-300 dark:bg-gray-600"
                           }`}
                         >
@@ -328,7 +330,7 @@ const Settings = () => {
                           htmlFor="reviewNotifications"
                           className={`flex items-center w-12 h-6 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
                             formData.reviewNotifications
-                              ? "bg-amber-500"
+                              ? "bg-emerald-700"
                               : "bg-gray-300 dark:bg-gray-600"
                           }`}
                         >
@@ -364,7 +366,7 @@ const Settings = () => {
                           htmlFor="flightAlerts"
                           className={`flex items-center w-12 h-6 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
                             formData.flightAlerts
-                              ? "bg-amber-500"
+                              ? "bg-emerald-700"
                               : "bg-gray-300 dark:bg-gray-600"
                           }`}
                         >
@@ -398,7 +400,7 @@ const Settings = () => {
                           htmlFor="priceAlerts"
                           className={`flex items-center w-12 h-6 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
                             formData.priceAlerts
-                              ? "bg-amber-500"
+                              ? "bg-emerald-700"
                               : "bg-gray-300 dark:bg-gray-600"
                           }`}
                         >
@@ -431,7 +433,7 @@ const Settings = () => {
                             id="light"
                             name="theme"
                             type="radio"
-                            className="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 dark:border-gray-600"
+                            className="h-4 w-4 text-emerald-700 focus:ring-emerald-500 border-gray-300 dark:border-gray-600"
                             defaultChecked
                           />
                           <label
@@ -446,7 +448,7 @@ const Settings = () => {
                             id="dark"
                             name="theme"
                             type="radio"
-                            className="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 dark:border-gray-600"
+                            className="h-4 w-4 text-emerald-700 focus:ring-emerald-500 border-gray-300 dark:border-gray-600"
                           />
                           <label
                             htmlFor="dark"
@@ -460,7 +462,7 @@ const Settings = () => {
                             id="system"
                             name="theme"
                             type="radio"
-                            className="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 dark:border-gray-600"
+                            className="h-4 w-4 text-emerald-700 focus:ring-emerald-500 border-gray-300 dark:border-gray-600"
                           />
                           <label
                             htmlFor="system"
@@ -478,7 +480,7 @@ const Settings = () => {
                       <select
                         id="currency"
                         name="currency"
-                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white"
                         defaultValue="USD"
                       >
                         <option>USD</option>
@@ -498,7 +500,7 @@ const Settings = () => {
                             id="miles"
                             name="distanceUnit"
                             type="radio"
-                            className="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 dark:border-gray-600"
+                            className="h-4 w-4 text-emerald-700 focus:ring-emerald-500 border-gray-300 dark:border-gray-600"
                             defaultChecked
                           />
                           <label
@@ -513,7 +515,7 @@ const Settings = () => {
                             id="kilometers"
                             name="distanceUnit"
                             type="radio"
-                            className="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 dark:border-gray-600"
+                            className="h-4 w-4 text-emerald-700 focus:ring-emerald-500 border-gray-300 dark:border-gray-600"
                           />
                           <label
                             htmlFor="kilometers"
@@ -531,7 +533,7 @@ const Settings = () => {
               <div className="mt-6 flex justify-end">
                 <button
                   type="submit"
-                  className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+                  className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-700 hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                 >
                   <FaSave className="mr-2 -ml-1 h-4 w-4" />
                   Save Changes

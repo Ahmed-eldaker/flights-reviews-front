@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/DataContext";
@@ -91,7 +93,7 @@ const Profile = () => {
   if (loading || isLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <FaSpinner className="h-12 w-12 text-amber-600 animate-spin mb-4" />
+        <FaSpinner className="h-12 w-12 text-emerald-700 animate-spin mb-4" />
         <p className="text-lg text-gray-600">Loading your profile...</p>
       </div>
     );
@@ -100,11 +102,11 @@ const Profile = () => {
   return (
     <div className="page-container">
       <div className="bg-white rounded-xl shadow-md overflow-hidden mb-8">
-        <div className="bg-gradient-to-r from-amber-500 to-amber-600 h-32 md:h-48"></div>
+        <div className="bg-gradient-to-r from-emerald-700 to-emerald-800 h-32 md:h-48"></div>
         <div className="relative px-4 py-5 sm:px-6">
           <div className="absolute -mt-16 flex items-center">
-            <div className="bg-amber-100 p-4 rounded-full border-4 border-white shadow-lg">
-              <FaUser className="h-12 w-12 text-amber-600" />
+            <div className="bg-emerald-100 p-4 rounded-full border-4 border-white shadow-lg">
+              <FaUser className="h-12 w-12 text-emerald-700" />
             </div>
           </div>
           <div className="ml-24 flex flex-col md:flex-row md:items-center md:justify-between">
@@ -114,20 +116,20 @@ const Profile = () => {
               </h1>
               <div className="flex flex-wrap mt-2">
                 <div className="flex items-center mr-4 text-sm text-gray-600">
-                  <FaEnvelope className="mr-1 text-amber-500" />
+                  <FaEnvelope className="mr-1 text-emerald-700" />
                   {user?.email || "user@example.com"}
                 </div>
                 <div className="flex items-center mr-4 text-sm text-gray-600">
-                  <FaMapMarkerAlt className="mr-1 text-amber-500" />
+                  <FaMapMarkerAlt className="mr-1 text-emerald-700" />
                   New York, USA
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  <FaCalendarAlt className="mr-1 text-amber-500" />
+                  <FaCalendarAlt className="mr-1 text-emerald-700" />
                   Joined Jan 2023
                 </div>
               </div>
             </div>
-            <button className="mt-4 md:mt-0 flex items-center px-4 py-2 bg-amber-100 text-amber-700 rounded-md hover:bg-amber-200 transition-colors">
+            <button className="mt-4 md:mt-0 flex items-center px-4 py-2 bg-emerald-100 text-emerald-700 rounded-md hover:bg-emerald-200 transition-colors">
               <FaEdit className="mr-2" />
               Edit Profile
             </button>
@@ -137,19 +139,19 @@ const Profile = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
-          <div className="text-3xl font-bold text-amber-600">
+          <div className="text-3xl font-bold text-emerald-700">
             {displayUserFlights.length}
           </div>
           <div className="text-gray-500">Reserved Flights</div>
         </div>
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
-          <div className="text-3xl font-bold text-amber-600">
+          <div className="text-3xl font-bold text-emerald-700">
             {displayUserReviews.length}
           </div>
           <div className="text-gray-500">Reviews Written</div>
         </div>
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
-          <div className="text-3xl font-bold text-lime-500">
+          <div className="text-3xl font-bold text-gray-700">
             {displayUserReviews.length > 0
               ? (
                   displayUserReviews.reduce(

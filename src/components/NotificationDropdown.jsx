@@ -47,9 +47,9 @@ const NotificationDropdown = ({ isMobile = false }) => {
   const getIcon = (type) => {
     switch (type) {
       case "review":
-        return <FaStar className="text-amber-500" />;
+        return <FaStar className="text-emerald-700" />;
       case "reservation":
-        return <FaPlane className="text-lime-500" />;
+        return <FaPlane className="text-gray-700" />;
       default:
         return <FaBell className="text-gray-500" />;
     }
@@ -65,7 +65,7 @@ const NotificationDropdown = ({ isMobile = false }) => {
         <h3 className="text-sm font-medium text-gray-900 dark:text-white">
           Notifications
         </h3>
-        <span className="text-xs text-amber-600 dark:text-amber-400 font-medium">
+        <span className="text-xs text-emerald-700 dark:text-emerald-400 font-medium">
           {notificationList.filter((n) => !n.read).length} new
         </span>
       </div>
@@ -81,7 +81,7 @@ const NotificationDropdown = ({ isMobile = false }) => {
             <div
               key={notification.id}
               className={`px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 ${
-                !notification.read ? "bg-amber-50 dark:bg-gray-700" : ""
+                !notification.read ? "bg-emerald-50 dark:bg-gray-700" : ""
               }`}
             >
               <div className="flex items-start">
@@ -119,7 +119,7 @@ const NotificationDropdown = ({ isMobile = false }) => {
       </div>
 
       <div className="px-4 py-2 border-t border-gray-200 dark:border-gray-700">
-        <button className="text-xs text-amber-600 dark:text-amber-400 font-medium hover:text-amber-700 dark:hover:text-amber-300">
+        <button className="text-xs text-emerald-700 dark:text-emerald-400 font-medium hover:text-emerald-800 dark:hover:text-emerald-300">
           Mark all as read
         </button>
       </div>

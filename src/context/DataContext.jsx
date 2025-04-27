@@ -16,6 +16,7 @@ export const DataProvider = ({ children }) => {
   const [userFlights, setUserFlights] = useState([]);
   const [userReviews, setUserReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const URL = "https://flights-xi-five.vercel.app/";
 
   // Configure axios with token
   useEffect(() => {
@@ -38,9 +39,7 @@ export const DataProvider = ({ children }) => {
       try {
         // Try to fetch flights from API
         try {
-          const flightsResponse = await axios.get(
-            `http://localhost:5000/flights`
-          );
+          const flightsResponse = await axios.get(`${URL}flights`);
           setFlights(flightsResponse.data);
 
           // Instead of using a subset of all flights, we should fetch user-specific flights
@@ -49,7 +48,7 @@ export const DataProvider = ({ children }) => {
 
           // Try to fetch reviews for each flight
           const reviewsPromises = flightsResponse.data.map((flight) =>
-            axios.get(`http://localhost:5000/reviews/${flight._id}`)
+            axios.get(`${URL}reviews/${flight._id}`)
           );
 
           const reviewsResponses = await Promise.all(reviewsPromises);
@@ -65,7 +64,7 @@ export const DataProvider = ({ children }) => {
           // Try to fetch user reviews directly from the API
           try {
             const userReviewsResponse = await axios.get(
-              `http://localhost:5000/reviews/user/${userId}`
+              `${URL}reviews/user/${userId}`
             );
             setUserReviews(userReviewsResponse.data);
           } catch (error) {
@@ -122,10 +121,7 @@ export const DataProvider = ({ children }) => {
 
       try {
         // Try to call the API
-        const response = await axios.post(
-          `http://localhost:5000/reviews`,
-          reviewPayload
-        );
+        const response = await axios.post(`${URL}reviews`, reviewPayload);
         newReview = response.data;
 
         // If the API response doesn't include user details, add them
@@ -167,6 +163,55 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  // Add a flight
+  const addFlight = async (flightData) => {
+    try {
+      // Ensure we have the required fields
+      if (
+        !flightData.airline ||
+        !flightData.flightNumber ||
+        !flightData.from ||
+        !flightData.to
+      ) {
+        toast.error("Missing required flight information");
+        return false;
+      }
+
+      // Add default values if not provided
+      const completeFlightData = {
+        departureDate: new Date().toISOString(),
+        price: "450.00",
+        duration: "5h 30m",
+        ...flightData,
+      };
+
+      let newFlight;
+
+      try {
+        // Try to call the API to add a flight
+        const response = await axios.post(`${URL}flights`, completeFlightData);
+        newFlight = response.data;
+      } catch (error) {
+        console.log("Using simulated flight due to API error:", error);
+        // If API fails, simulate a new flight
+        newFlight = {
+          _id: `flight_${Date.now()}`,
+          ...completeFlightData,
+        };
+      }
+
+      // Update flights state
+      setFlights((prevFlights) => [...prevFlights, newFlight]);
+
+      toast.success("Flight added successfully!");
+      return true;
+    } catch (error) {
+      console.error("Error adding flight:", error);
+      toast.error("Failed to add flight");
+      return false;
+    }
+  };
+
   // Reserve a flight (simulated)
   const reserveFlight = async (flightId) => {
     try {
@@ -182,12 +227,9 @@ export const DataProvider = ({ children }) => {
       try {
         // In a real app, you'd call an API endpoint to reserve the flight
         // For this demo, we'll just simulate it
-        const response = await axios.post(
-          `http://localhost:5000/flights/reserve`,
-          {
-            flightId,
-          }
-        );
+        const response = await axios.post(`${URL}flights/reserve`, {
+          flightId,
+        });
         reservedFlight = response.data;
       } catch (error) {
         console.log("Using simulated reservation due to API error:", error);
@@ -218,6 +260,7 @@ export const DataProvider = ({ children }) => {
     userReviews,
     loading,
     addReview,
+    addFlight,
     reserveFlight,
   };
 

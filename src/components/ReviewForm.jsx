@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useData } from "../context/DataContext";
@@ -56,7 +58,7 @@ const ReviewForm = ({ flightId, onComplete }) => {
           >
             <FaStar
               className={`h-5 w-5 ${
-                star <= value ? "text-amber-400" : "text-gray-300"
+                star <= value ? "text-emerald-400" : "text-gray-300"
               }`}
             />
           </button>
@@ -150,7 +152,7 @@ const ReviewForm = ({ flightId, onComplete }) => {
       <div className="flex justify-end">
         <button
           type="submit"
-          className="bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
+          className="bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-2 px-4 rounded-md transition-colors"
           disabled={loading}
         >
           {loading ? "Submitting..." : "Submit Review"}

@@ -33,8 +33,8 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/home" className="flex items-center group">
-              <div className="bg-amber-100 dark:bg-amber-900 p-2 rounded-full transition-all duration-300 group-hover:bg-amber-200 dark:group-hover:bg-amber-800">
-                <FaPlane className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+              <div className="bg-emerald-100 dark:bg-emerald-900 p-2 rounded-full transition-all duration-300 group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800">
+                <FaPlane className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
               </div>
               <span className="ml-2 text-xl font-bold text-gray-900 dark:text-white">
                 FlightReview
@@ -47,14 +47,14 @@ const Navbar = () => {
             <DarkModeToggle />
             <button
               onClick={() => setShowNotifications(!showNotifications)}
-              className="ml-2 p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-amber-50 dark:hover:bg-gray-700 relative"
+              className="ml-2 p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-emerald-50 dark:hover:bg-gray-700 relative"
             >
               <FaBell className="h-5 w-5" />
               <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"></span>
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="ml-2 inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700 focus:outline-none"
+              className="ml-2 inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-700 focus:outline-none"
             >
               {mobileMenuOpen ? (
                 <FaTimes className="h-6 w-6" />
@@ -70,8 +70,8 @@ const Navbar = () => {
                 to="/home"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                   location.pathname === "/home"
-                    ? "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-gray-700"
-                    : "text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700"
+                    ? "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-gray-700"
+                    : "text-gray-700 dark:text-gray-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-700"
                 }`}
               >
                 <div className="flex items-center">
@@ -84,8 +84,8 @@ const Navbar = () => {
                 to="/profile"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                   location.pathname === "/profile"
-                    ? "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-gray-700"
-                    : "text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700"
+                    ? "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-gray-700"
+                    : "text-gray-700 dark:text-gray-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-700"
                 }`}
               >
                 <div className="flex items-center">
@@ -98,8 +98,8 @@ const Navbar = () => {
                 to="/settings"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                   location.pathname === "/settings"
-                    ? "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-gray-700"
-                    : "text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700"
+                    ? "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-gray-700"
+                    : "text-gray-700 dark:text-gray-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-700"
                 }`}
               >
                 <div className="flex items-center">
@@ -113,7 +113,7 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setShowNotifications(!showNotifications)}
-                  className="p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-amber-50 dark:hover:bg-gray-700 relative"
+                  className="p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-emerald-50 dark:hover:bg-gray-700 relative"
                 >
                   <FaBell className="h-5 w-5" />
                   <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"></span>
@@ -124,8 +124,8 @@ const Navbar = () => {
               <DarkModeToggle />
 
               <div className="flex items-center">
-                <div className="flex items-center bg-amber-50 dark:bg-gray-700 px-3 py-1 rounded-full mr-4">
-                  <FaUser className="h-4 w-4 text-amber-600 dark:text-amber-400 mr-2" />
+                <div className="flex items-center bg-emerald-50 dark:bg-gray-700 px-3 py-1 rounded-full mr-4">
+                  <FaUser className="h-4 w-4 text-emerald-700 dark:text-emerald-400 mr-2" />
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
                     {user?.name || "User"}
                   </span>
@@ -151,8 +151,8 @@ const Navbar = () => {
               to="/home"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 location.pathname === "/home"
-                  ? "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-gray-700"
-                  : "text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700"
+                  ? "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-gray-700"
+                  : "text-gray-700 dark:text-gray-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-700"
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -166,8 +166,8 @@ const Navbar = () => {
               to="/profile"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 location.pathname === "/profile"
-                  ? "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-gray-700"
-                  : "text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700"
+                  ? "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-gray-700"
+                  : "text-gray-700 dark:text-gray-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-700"
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -181,8 +181,8 @@ const Navbar = () => {
               to="/settings"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 location.pathname === "/settings"
-                  ? "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-gray-700"
-                  : "text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-700"
+                  ? "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-gray-700"
+                  : "text-gray-700 dark:text-gray-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-gray-700"
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -194,8 +194,8 @@ const Navbar = () => {
 
             <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center px-3">
-                <div className="flex-shrink-0 bg-amber-100 dark:bg-amber-900 p-1 rounded-full">
-                  <FaUser className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                <div className="flex-shrink-0 bg-emerald-100 dark:bg-emerald-900 p-1 rounded-full">
+                  <FaUser className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium text-gray-800 dark:text-white">

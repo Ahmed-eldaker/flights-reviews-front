@@ -32,7 +32,7 @@ const ReviewCard = ({ review }) => {
             key={star}
             className={`h-4 w-4 ${
               star <= rating
-                ? "text-amber-400"
+                ? "text-emerald-400"
                 : "text-gray-300 dark:text-gray-600"
             }`}
           />
@@ -96,11 +96,11 @@ const ReviewCard = ({ review }) => {
   };
 
   return (
-    <div className="card mb-4 hover:border-amber-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-amber-500 transition-all duration-300">
+    <div className="card mb-4 hover:border-emerald-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-emerald-500 transition-all duration-300">
       <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
         <div className="flex items-center mb-4 md:mb-0">
-          <div className="bg-amber-100 dark:bg-amber-900 p-2 rounded-full mr-3 shadow-sm">
-            <FaUser className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+          <div className="bg-emerald-100 dark:bg-emerald-900 p-2 rounded-full mr-3 shadow-sm">
+            <FaUser className="h-5 w-5 text-emerald-700 dark:text-emerald-400" />
           </div>
           <div>
             <h3 className="font-medium text-gray-800 dark:text-white">
@@ -115,12 +115,12 @@ const ReviewCard = ({ review }) => {
           </div>
         </div>
         <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-3 py-1 rounded-lg">
-          <FaCalendarAlt className="mr-1 text-amber-500 dark:text-amber-400" />
+          <FaCalendarAlt className="mr-1 text-emerald-500 dark:text-emerald-400" />
           {formatDate(review.createdAt)}
         </div>
       </div>
 
-      <div className="my-4 bg-amber-50 dark:bg-gray-700 p-4 rounded-lg">
+      <div className="my-4 bg-emerald-50 dark:bg-gray-700 p-4 rounded-lg">
         <p className="text-gray-700 dark:text-gray-300 break-words">
           {showFullFeedback
             ? review.feedback
@@ -128,7 +128,7 @@ const ReviewCard = ({ review }) => {
           {review.feedback && review.feedback.length > 150 && (
             <button
               onClick={() => setShowFullFeedback(!showFullFeedback)}
-              className="ml-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium text-sm"
+              className="ml-2 text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 font-medium text-sm"
             >
               {showFullFeedback ? "Show less" : "Read more"}
             </button>
@@ -170,8 +170,8 @@ const ReviewCard = ({ review }) => {
             onClick={handleLike}
             className={`flex items-center transition-colors duration-300 ${
               userAction === "like"
-                ? "text-amber-600 dark:text-amber-400"
-                : "text-gray-500 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400"
+                ? "text-emerald-700 dark:text-emerald-400"
+                : "text-gray-500 dark:text-gray-400 hover:text-emerald-700 dark:hover:text-emerald-400"
             }`}
           >
             <FaThumbsUp className="mr-1" />
@@ -193,7 +193,7 @@ const ReviewCard = ({ review }) => {
           <span className="text-sm text-gray-500 dark:text-gray-400 mr-2">
             Average rating:
           </span>
-          <span className="bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-300 text-sm px-2 py-1 rounded-full font-medium">
+          <span className="bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-300 text-sm px-2 py-1 rounded-full font-medium">
             {calculateAverageRating()}
           </span>
         </div>
